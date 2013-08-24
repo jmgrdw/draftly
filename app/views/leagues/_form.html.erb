@@ -1,0 +1,105 @@
+
+<div class="row">
+	<div class="col-lg-8 col-lg-offset-2">
+
+	<%= form_for @league, :html => {:class => 'form-horizontal'} do |f| %>
+
+		<div class="form-group">
+			
+			<%= f.label :name, :class => 'control-label col-lg-2' %>
+			<div class="col-lg-6">
+				<%= f.text_field :name, :class => 'form-control' %>		
+			</div>
+			
+		</div>
+		
+		<div class="form-group">
+			<%= f.label :started, :class => 'control-label col-lg-2' %>
+			
+			<div class="col-lg-1">
+			<%= f.check_box :started, :class => 'form-control'%>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<%= f.label :finished, :class => 'control-label col-lg-2' %>
+			
+			<div class="col-lg-1">
+			<%= f.check_box :finished, :class => 'form-control' %>
+			</div>
+		</div>
+		
+
+		<div class="form-group">
+			<%= f.label :start_date, :class => 'control-label col-lg-2' %>
+			
+			<div class="col-lg-6">
+			<%#= select_date Date.today, prefix: :start_date, :class => 'form-control' %>
+			<%= select_date Date.new(2013,11,2), prefix: :start_date, :class => 'form-control' %>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<%= f.label :end_date, :class => 'control-label col-lg-2' %>
+			
+			<div class="col-lg-6">
+			<%#= select_date Date.today, prefix: :end_date, :class => 'form-control' %>
+			<%= select_date Date.new(2013,11,2), prefix: :end_date, :class => 'form-control' %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :fee, :class => 'control-label col-lg-2' %>
+			
+			<div class="col-lg-6">
+			<%= f.number_field :fee, :class => 'form-control', :placeholder => '1, 2, 5, 10, & 20 dollars' %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :size, :class => 'control-label col-lg-2' %>
+			
+			<div class="col-lg-6">
+			<%= f.number_field :size, :class => 'form-control' %>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<%= f.label :min_size, :class => 'control-label col-lg-2' %>
+			
+			<div class="col-lg-6">
+			<%= f.number_field :min_size, :class => 'form-control', :placeholder => "smaller leagues 100%" %>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<%= f.label :unique_payout_positions, "# Payouts", :class => 'control-label col-lg-2' %>
+			
+			<div class="col-lg-6">
+			<%= f.number_field :unique_payout_positions, :class => 'form-control', :placeholder => "about 10%" %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :league_type, :class => 'control-label col-lg-2' %>
+			
+			<div class="col-lg-6">
+			<%= f.number_field :league_type, :class => 'form-control', :placeholder => "1 => 5 players, 2 => 9 players, 3 => 12 players" %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-lg-offset-2 col-lg-6">
+				<% if @league.id %>
+					<%= f.submit "update league", :class => 'btn btn-default' %>	
+				<% else %>
+					<%= f.submit "create league & go to add teams", :class => 'btn btn-default' %>	
+				<% end %>
+			</div>
+		</div>
+
+
+	<% end %>
+
+	</div>	
+</div>

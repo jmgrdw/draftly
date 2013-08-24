@@ -1,0 +1,29 @@
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="container">
+		
+			<%= link_to "draftly", root_path, :class => 'navbar-brand'%>
+		  <ul class="nav navbar-nav">
+				<li class="dropdown">
+					<%= link_to "leagues <b class='caret'></b>".html_safe, '#', :class => 'dropdown-toggle', :data => { :toggle => 'dropdown' } %>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+						<% if current_user && current_user.admin %>
+						<li><%= link_to "new league", new_league_path %></li>
+						<% end %>
+						<li><%= link_to "join a league", root_path %></li>
+					</ul>
+				</li>
+		  </ul>
+
+			<ul class="nav navbar-nav pull-right">
+				<% if current_user %>
+						<%= render :partial => 'layouts/nav/user_nav_right' %>
+				<% else %>
+					<li><%= link_to "sign up", new_user_registration_path %></li>
+					<li><%= link_to "sign in", new_user_session_path %></li>
+				<% end %>
+			</ul>
+			
+		</div>
+	</div>	
+</div>

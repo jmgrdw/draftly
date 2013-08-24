@@ -1,0 +1,44 @@
+<div class="row">
+	<div class="col-lg-10 col-lg-offset-1">
+		<table class="table table-striped table-condensed">
+			<thead>
+				<tr>
+					<th colspan="12" style="text-align: center; background-color: black; color: white;">LEAGUE: <%= @fantasy_team.league.name %> - <%= format_salary(@fantasy_team.salary_cap) %></th>
+				</tr>
+				<tr><th colspan="3" style="text-align: center; background-color: gray;">Player Info</th><th colspan="9" style="text-align: center; background-color: gray;">Current Stats</th></tr>
+				<tr>
+					<th>POS</th>
+					<th>Name</th>
+					<th>Salary</th>
+					<th>Minutes</th>
+					<th>PTS</th>
+					<th>REB</th>
+					<th>AST</th>
+					<th>STL</th>
+					<th>BLK</th>
+					<th>TO</th>
+					<th>Total</th>
+					<th>finished?</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @fantasy_team.players.each do |p| %>
+				<tr>
+					<td><%= p.position%></td>
+					<td><%= p.name %></td>
+					<td><%= format_salary(p.salary) %></td>
+					<% 9.times do |x| %><td>0</td><% end %>
+				</tr>
+				<% end %>
+			</tbody>
+			<thead>
+				<th colspan="2"></th>
+				<th class="total-column"><%= format_salary @fantasy_team.team_salary %></th>
+				<th colspan="7"></th>
+				<th class="total-column">0</th>
+			</thead>
+		</table>
+	</div>
+</div>
+
+<%= link_to "Edit Team", edit_fantasy_team_path(@fantasy_team, :league_id => @fantasy_team.league_id), :class => 'btn btn-success btn-large'%>

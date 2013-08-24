@@ -1,0 +1,22 @@
+<li class="dropdown">
+	<%= link_to "my entries <b class='caret'></b>".html_safe, '#', :role => 'botton', :class => 'dropdown-toggle', :data => { :toggle => 'dropdown'}, :id => 'myGamesDropdown' %>
+	<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="myGamesDropdown">
+		<li class="text-right"><%= link_to "(#{current_user.current_fantasy_teams_count}) live", live_entries_user_path(current_user) %></li>
+		<li class="text-right"><%= link_to "(#{current_user.upcoming_fantasy_teams_count}) upcoming", upcoming_entries_user_path(current_user) %></li>
+		<li class="text-right"><%= link_to "(#{current_user.fantasy_teams_count}) history", entry_history_user_path(current_user) %></li>
+	</ul>
+</li>
+
+<li class="dropdown">
+	
+	<%= link_to "my account <b class='caret'></b>".html_safe, '#', :role => 'button', :class => 'dropdown-toggle', :data => { :toggle => 'dropdown' }, :id => 'dropdownMenu' %>  
+	<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu">
+		<li class="text-right"><%= link_to "overview", user_account_path(current_user) %></li>
+		<li class="divider"></li>		
+		<li class="text-right"><%= link_to "add funds", add_funds_user_account_path(current_user) %></li>
+		<li class="text-right"><%= link_to "withdraw", '#' %></li>
+	</ul>
+</li>
+
+<li><%= link_to current_user.username, user_path(current_user) %></li>
+<li class="text-right"><%= link_to "logout", destroy_user_session_path, :method => :delete %></li>

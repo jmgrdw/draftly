@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Draftly</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	
+	<%= render :partial => 'layouts/nav/nav' %>
+	
+	<%= render :partial => 'shared/alerts' %>
+	
+	<%#= debug params %>
+
+	<%= yield %>
+
+</body>
+</html>

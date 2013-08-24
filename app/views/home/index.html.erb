@@ -1,0 +1,5 @@
+<% if current_user %>
+	<%= render :partial => 'main_index' %>
+<% else %>
+	<%= render :partial => 'landing_page' %>
+<% end %>

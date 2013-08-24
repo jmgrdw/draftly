@@ -1,0 +1,53 @@
+<h2>class: <%= @fantasy_team.class %></h2>
+
+<%= form_for @fantasy_team do |f| %>
+
+		<%= f.hidden_field :league_id, :value => @league.id %>
+	
+		<%= f.label :name, "Team Name" %>
+		<%= f.text_field :name %>
+	
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="col-lg-2">
+					<h2 style="background-color: black; color: white;">PGs</h2>
+					<% @point_guards.each do |player| %>
+						<%= check_box_tag "fantasy_team[player_ids][]", player.id %>
+						<%= player.full_name %><br>
+					<% end %>				
+				</div>
+				<div class="col-lg-2">
+					<h2 style="background-color: black; color: white;">SGs</h2>
+					<% @shooting_guards.each do |player| %>
+						<%= check_box_tag "fantasy_team[player_ids][]", player.id %>
+						<%= player.full_name %><br>			
+					<% end %>
+				</div>
+				<div class="col-lg-2">
+					<h2 style="background-color: black; color: white;">SFs</h2>
+					<% @small_forwards.each do |player| %>
+						<%= check_box_tag "fantasy_team[player_ids][]", player.id %>
+						<%= player.full_name %><br>			
+					<% end %>
+				</div>
+				<div class="col-lg-2">
+					<h2 style="background-color: black; color: white;">PFs</h2>
+					<% @power_forwards.each do |player| %>
+						<%= check_box_tag "fantasy_team[player_ids][]", player.id %>
+						<%= player.full_name %><br>			
+					<% end %>
+				</div>
+				<div class="col-lg-2">
+					<h2 style="background-color: black; color: white;">Cs</h2>
+					<% @centers.each do |player| %>
+						<%= check_box_tag "fantasy_team[player_ids][]", player.id %>
+						<%= player.full_name %><br>			
+					<% end %>
+				</div>
+
+			</div>			
+		</div>
+		
+		<%= f.submit "Create team" %>
+	
+<% end %>

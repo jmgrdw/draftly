@@ -1,0 +1,12 @@
+<table class="table table-condensed">
+	<tbody>
+		<% players.each do |player| %>
+			<tr>
+				<td><%= check_box_tag "fantasy_team[player_ids][]", player.id %></td>
+				<td><%= player.full_name %></td>
+				<td><%= format_salary(player.salary)%></td>
+				<td><%= player.team.full_name %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

@@ -1,0 +1,23 @@
+<div class="col-lg-12">
+	<%= params %>
+</div>
+
+<div class="col-lg-12">
+	<div class="col-lg-4">
+		<h2>League Info:</h2>
+		<p>Pos: <%= @league.league_desc %></p>
+		<p>Name: <%= @league.name %></p>
+		<p>Size: <%= @league.size %></p>
+		<p>Salary Cap: <%= @league.salary_cap %></p>
+		<p>Fee: <%= @league.fee %></p>
+		<p>Id: <%= @league.id %></p>
+		
+		<% @league.fantasy_teams.each do |f| %>
+		<p><%= link_to f.name, fantasy_team_path(f) %></p>
+		<% end %>
+	</div>
+	<div class="col-lg-8">
+		<%= render :partial => 'fantasy_teams/form', :locals => {:league_id => @league.id } %>
+		
+	</div>
+</div>

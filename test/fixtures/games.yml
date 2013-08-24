@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  espn_id: MyString
+  date: 2013-08-04
+  home_team_id: 1
+  away_team_id: 1
+
+two:
+  espn_id: MyString
+  date: 2013-08-04
+  home_team_id: 1
+  away_team_id: 1

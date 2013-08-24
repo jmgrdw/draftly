@@ -1,0 +1,35 @@
+<%= form_for @fantasy_team do |f| %>
+
+	<%= f.submit "Create team", :class => 'btn btn-primary' %>
+	<%= f.hidden_field :league_id, :value => @league.id %>
+	<%= f.text_field :name, :placeholder => "team name" %>
+
+	<ul class="nav nav-tabs">
+	  <li><a href="#point-guards" data-toggle="tab">PGs</a></li>
+	  <li><a href="#shooting-guards" data-toggle="tab">SGs</a></li>
+	  <li><a href="#small-forwards" data-toggle="tab">SFs</a></li>
+	  <li><a href="#power-forwards" data-toggle="tab">PFs</a></li>
+		<li><a href="#centers" data-toggle="tab">Cs</a></li>
+	</ul>
+
+	<div class="tab-content">
+	  <div class="tab-pane active" id="point-guards">
+			<%= render :partial => 'player_tabs', :locals => {:players => @point_guards} %>
+	  </div>
+
+		<div class="tab-pane" id="shooting-guards">
+			<%= render :partial => 'player_tabs', :locals => {:players => @shooting_guards} %>
+		</div>
+		<div class="tab-pane" id="small-forwards">
+			<%= render :partial => 'player_tabs', :locals => {:players => @small_forwards} %>
+		</div>
+		<div class="tab-pane" id="power-forwards">
+			<%= render :partial => 'player_tabs', :locals => {:players => @power_forwards} %>
+		</div>
+		<div class="tab-pane" id="centers">
+			<%= render :partial => 'player_tabs', :locals => {:players => @centers} %>
+		</div>
+	</div>
+
+<% end %>
+

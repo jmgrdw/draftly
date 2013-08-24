@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  size: 1
+  fee: 1
+  start_date: 2013-08-04 22:53:18
+  salary_cap: 1
+
+two:
+  name: MyString
+  size: 1
+  fee: 1
+  start_date: 2013-08-04 22:53:18
+  salary_cap: 1

@@ -1,0 +1,13 @@
+<h2>name: <%= @order_info[:name] %></h2>
+<h2>email: <%= @order_info[:email] %></h2>
+
+
+<h4>current balance: <%= format_salary @account.balance %></h4>
+<h4><em>..from paypal: <%= format_salary @order_info[:total] %></em></h4>
+<h4><strong>new balance: <%= format_salary (@account.balance + @order_info[:total]) %></strong></h4>
+
+
+
+
+
+<%= link_to 'complete purchase', paypal_purchase_path(:token => @order_info[:gateway_details][:token], :payer_id => @order_info[:gateway_details][:payer_id]) %>

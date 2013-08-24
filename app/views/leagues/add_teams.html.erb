@@ -1,0 +1,32 @@
+<%= form_for @league do |f| %>
+
+<table class="table table-condensed table-hover">
+	<thead>
+		<tr>
+			<th>Add</th>
+			<th>Home Team</th>
+			<th>Away Team</th>
+			<th>Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @games.each do |game| %>
+		<tr>
+			<td><%=  check_box_tag "league[game_ids][]", game.id%></td>
+			<td><%= game.home_team.name %></td>
+			<td><%= game.away_team.name %></td>
+			<td><%= game.date %></td>
+		</tr>
+		<% end %>
+	</tbody>
+	
+</table>
+
+	<%= f.check_box :finalized, {:checked => true} %>
+	<%= f.label :finalize %>
+
+
+	<%= f.submit "Add Teams", :class => 'btn btn-primary' %>
+
+
+<% end %>

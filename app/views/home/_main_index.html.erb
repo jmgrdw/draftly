@@ -1,0 +1,44 @@
+<div class="col-lg-10 col-lg-offset-1">
+	
+	<table class="table table-striped table-condensed">
+		<thead>
+			<tr>
+				<th>edit</th>
+				<th>show</th>
+				<th>Start Date</th>
+				<th>End Date</th>
+				<th># games</th>
+				<th>League Name (type)</th>
+				<th>Fee</th>
+				<th>Prizes </th>
+				<th>Team Type</th>
+				<th>Max Teams</th>
+				<th>Min Teams</th>
+				<th># payouts</th>
+				<th># teams</th>
+				<th>Join</th>
+			</tr>
+			<tbody>
+				<% @leagues.each do |l| %>
+					<tr>
+						<td><%= link_to "edit", edit_league_path(l), :class => 'btn btn-mini btn-warning' %></td>
+						<td><%= link_to "show", league_path(l), :class => 'btn btn-mini btn-info'%></td>
+						<td><%= l.start_date.strftime('%b %d, %Y') %></td>
+						<td><%= l.end_date.strftime('%b %d, %Y') %></td>
+						<td><%= l.games.count %></td>
+						<td><%= l.name %> (<%= l.league_type%>)</td>
+						<td><%= number_to_currency l.fee, :precision => 0 %></td>
+						<td><%= format_salary(l.league_payout_maximum) %></td>
+						<td><%= l.positions %></td>
+						<td><%= l.size %></td>
+						<td><%= l.min_size %></td>
+						<td><%= l.unique_payout_positions %></td>
+						<td><%= l.fantasy_teams.count %></td>
+						<td><%= link_to_join_league_if_available(l) %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</thead>
+	</table>
+	
+</div>

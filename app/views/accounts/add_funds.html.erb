@@ -1,0 +1,9 @@
+<h2>add funds</h2>
+
+<h2>Current Balance: <%= format_salary @account.balance %></h2>
+
+<% @products.each do |product| %>
+
+	<%= link_to "#{format_salary product.amount}", paypal_checkout_path(:product_id => product.id), :class => 'btn btn-success btn-large'%>
+
+<% end %>

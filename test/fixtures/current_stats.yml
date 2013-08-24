@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  player_id: 1
+  game_id: 1
+  minutes: 1
+  points: 1
+  rebounds: 1
+  assists: 1
+  blocks: 1
+  steals: 1
+  turnovers: 1
+  finished: false
+
+two:
+  player_id: 1
+  game_id: 1
+  minutes: 1
+  points: 1
+  rebounds: 1
+  assists: 1
+  blocks: 1
+  steals: 1
+  turnovers: 1
+  finished: false
