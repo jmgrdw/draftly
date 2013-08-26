@@ -1,5 +1,6 @@
 class Player < ActiveRecord::Base
   attr_accessible :full_name, :espn_url, :position, :team_id, :salary, :position_value
+  validates_presence_of :full_name, :team_id, :position, :salary
   
   belongs_to :team
   
