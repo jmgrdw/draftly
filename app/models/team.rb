@@ -1,5 +1,7 @@
 class Team < ActiveRecord::Base
   attr_accessible :full_name, :city, :abbreviation, :url, :espn_long_name, :short_name, :playing_today
+
+  validates_presence_of :full_name, :city, :abbreviation, :url, :espn_long_name, :short_name
   
   has_many :players
   
@@ -17,7 +19,4 @@ class Team < ActiveRecord::Base
   def name
     full_name
   end
-    
-  
-  
 end
