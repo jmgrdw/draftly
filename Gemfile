@@ -10,6 +10,7 @@ gem 'sqlite3'
 
 group :development, :test do 
   gem 'bullet'
+  gem 'rspec-rails'
 end
 
 gem 'nokogiri'
