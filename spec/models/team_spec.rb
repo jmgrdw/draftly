@@ -61,6 +61,4 @@ describe Team do
 	    expect(team.players.count).to eq(1)
 	  end
 	end
-
-
 end
