@@ -2,6 +2,8 @@ require 'date'
 
 class Game < ActiveRecord::Base
   attr_accessible :away_team_id, :date, :espn_id, :home_team_id, :game_time
+
+  validates_presence_of :espn_id, :date, :away_team_id, :home_team_id, :game_time
   
   belongs_to :home_team, :class_name => 'Team', :foreign_key => 'home_team_id'
   belongs_to :away_team, :class_name => 'Team', :foreign_key => 'away_team_id'
